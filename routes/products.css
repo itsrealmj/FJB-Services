@@ -1,0 +1,119 @@
+* {
+    font-family: sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    color: rgba(0, 0, 0, .7);
+    font-family: 'poppins', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+.title {
+    text-align: center;
+    padding: 2rem 0 2rem 0;
+}
+.mobile-nav  {
+    position: relative;
+    z-index: 2;
+}
+
+.mobile-nav nav {
+    transform: translateY(-500px);
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 5%;
+    gap: 1.5rem 0;
+    background-color: white;
+    width: 90%;
+    margin: 4rem auto;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px 1px whitesmoke;
+    transition: .5s ease-out;
+    padding: 2rem 0;
+}
+.mobile-nav nav.active {
+    transform: translateY(0px);
+    opacity: 1;
+    transition: .5s ease-in;
+    position: fixed;
+    top: 0;
+}
+.mobile-nav nav span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: .5rem 1rem;
+    font-weight: bold;
+}
+.mobile-nav nav a {
+    text-decoration: none;
+    color: rgb(2, 2, 89);
+    font-weight: 600;
+}
+/* both styling nav links mobile and */
+.mobile-nav nav a, .desktop-nav nav a {
+    position: relative;
+    
+}
+.mobile-nav nav a::after , .desktop-nav nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -.5rem;
+    left: 0;
+    height: 3px;
+    width: 0px;
+    background-color: gray;
+    transition: .3s ease-in-out;
+}
+.mobile-nav nav a:hover::after, .desktop-nav nav a:hover::after {
+    width: 100%;
+    background-color: rgba(255, 68, 0, 0.775);
+}
+/*  */
+.desktop-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: rgba(250, 250, 250, .9);
+
+}
+.desktop-nav nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+}
+.desktop-nav .header-btn { 
+    display: none; 
+    padding: 0 .5rem; 
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+
+    background-color: #b55507;
+}
+.desktop-nav section {display: none;}
+
+
+
+
+@media only screen and (min-width: 600px) {
+    .burger-icon { display: none;}
+    .desktop-nav .header-btn { display: block;}
+    .desktop-nav { padding: 2rem 5rem; justify-content: space-between;}
+    .desktop-nav img { width: 200px;}
+    .desktop-nav section {display: flex; align-items: center; }
+    .desktop-nav nav section ul a {
+        text-decoration: none;
+        color: rgba(0, 0, 0, 0.6);
+        font-weight: 600;
+        margin: 0 1rem ;
+    }
+    .title { 
+        font-size: 2.5rem;
+        padding-top: 5rem;
+    }
